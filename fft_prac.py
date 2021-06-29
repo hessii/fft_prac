@@ -16,10 +16,11 @@ Lx = 100        # period = 100
 omg = 2.0 * np.pi / Lx
 
 # Creating individual signals
-x = np.linspace(0, Lx, n)  # numpy.linspace(start, stop, num=50): return evenly spaced numbers over a specified interval
+x = np.linspace(0, Lx, n)
 y1 = 1. * np.cos(5. * omg * x)      # signal 1
 y2 = 2. * np.sin(10. * omg * x)     # signal 2
 y3 = 0.5 * np.sin(20. * omg * x)    # signal 3
+# (numpy.linspace(start, stop, num=50): #return evenly spaced numbers over a specified interval)
 
 # Full signal
 y = y1 + y2 + y3
@@ -38,6 +39,7 @@ mask = freqs > 0
 fft_vals = fft(y)
 
 # true theoretical fft
+# 2* for 
 fft_theo = 2.0 * np.abs(fft_vals/n)
 
 plt.figure(1)
