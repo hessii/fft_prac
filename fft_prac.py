@@ -39,7 +39,7 @@ mask = freqs > 0
 fft_vals = fft(y)
 
 # true theoretical fft
-# 2* for 
+# 2*|| for ..?
 fft_theo = 2.0 * np.abs(fft_vals/n)
 
 plt.figure(1)
