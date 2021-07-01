@@ -27,7 +27,7 @@ y = y1 + y2 + y3
 
 # Preparatory steps
 # Create all the necessary frequencies
-freqs = fftfreq(n)      # [0, 0.001, 0.002, 0.003, ..., 0.049]
+freqs = np.fft.fftfreq(n)      # [0, 0.001, 0.002, 0.003, ..., 0.049]
 
 # make array to be used for power spectra
 # ignoring half the values, as they are complex conjugates of the other
@@ -36,7 +36,7 @@ mask = freqs > 0
 
 # FFT and power spectra calculations
 # fft values
-fft_vals = fft(y)
+fft_vals = np.fft.fft(y)
 
 # true theoretical fft
 # 2*|| for ..?
