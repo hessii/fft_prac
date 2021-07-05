@@ -36,24 +36,27 @@ freqs = np.fft.fftshift(np.fft.fftfreq(n, dx)) #[-0.5, -0.49, ..., -0.01, 0, 0.0
 # FFT and power spectra calculations
 # fft values
 fft_vals = np.fft.fft(y)
-fft = np.fft.fftshift(fft_vals)
+fft = np.fft.fftshift(fft_vals)     #fft.fftshift: shift the zero-frequency componenet to the center of the spectrum
 
 # true theoretical fft
 # 2*||/n for normalization
 fft_theo = 2.0 * np.abs(fft) / n
 
 plt.figure()
-plt.title('Original Signal')
+plt.title('Original Signal', fontsize=17)
+plt.tick_params(labelsize=11)
 plt.plot(x, y, label='original')
 plt.legend()
 
 plt.figure()
 plt.plot(freqs, fft, '.-', label='raw fft values')
-plt.title('Raw FFT values')
+plt.tick_params(labelsize=11)
+plt.title('Raw FFT values', fontsize=17)
 
 plt.figure()
-plt.plot(freqs[int(n/2):], fft_theo[int(n/2):], '.-', label='true fft values')
-plt.title('True FFT values')
+plt.step(freqs[int(n/2):], fft_theo[int(n/2):], '.-', where='mid', label='true fft values')
+plt.tick_params(labelsize=11)
+plt.title('True FFT values', fontsize=17)
 
 plt.show()
 
