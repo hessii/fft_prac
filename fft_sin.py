@@ -11,7 +11,8 @@ y = 10 * np.sin(1*x)
 
 fig1 = plt.figure()
 plt.plot(x, y, '.-')
-plt.title('sine function')
+plt.tick_params(labelsize=11)
+plt.title('sine function', fontsize=17)
 
 # FFT
 fft = np.fft.fft(y)
@@ -27,14 +28,15 @@ xfft = k
 k = np.fft.fftshift(np.fft.fftfreq(n, dx))
 
 fig2 = plt.figure()
-plt.plot(k[int(n/2):], fft_mag[int(n/2):], '.-' )
-plt.title('FFT')
+plt.step(k[int(n/2):], fft_mag[int(n/2):], '.-', where='mid')
+plt.tick_params(labelsize=11)
+plt.title('FFT', fontsize=17)
 plt.show()
 
 #Parseval's theorem
 fsqravg = np.mean(np.abs(y) ** 2)
 
-csqrsum = sum(np. abs(fft) ** 2)
+csqrsum = sum(np. abs(fft) ** 2)x
 
 print(fsqravg, ', ', csqrsum/(n*n))
 
